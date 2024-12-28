@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=0.8" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./fabric.js"></script>
+    <script src="./utils.js"></script>
+    <style>
+      .box{
+        border: 1px solid #ccc;
+      }
+    </style>
+    <title>大厅布局</title>
+  </head>
+  <body>
+    <div class="w-[500px] h-[600px] mx-auto mt-[100px]">
+      <h1 class="h-[40px] text-center">大厅布局</h1>
+      <div class="box">
+        <canvas id="canvas" width="502" height="561"></canvas>
+      </div>
+    </div>
+    <script>
+      const canvas = new fabric.Canvas("canvas");
+      const groups = {}
+      const renders = [
+        { text: '电视柜', width: 200, height: 50, left: 100, top: 0 },
+        { text: '阳台', width: 100, height: 360, left: 400, top: 0, disabled: true },
+        { text: '贵妃位', width: 100, height: 180, left: 120, top: 380, groupName: 'shafa' },
+        { text: '沙发', width: 240, height: 100, left: 220, top: 460, groupName: 'shafa' },
+      ];
+      
+      renders.forEach((d, i) => {
+        add(d, i)
+      })
+    </script>
+  </body>
+</html>
