@@ -1,7 +1,6 @@
 function add(d, i) {
-  console.log('d.type',d.type)
   // 图形
-  const rect = new fabric[d.type]({
+  const rect = new fabric[d.type || 'Rect']({
     ...{
       width: 200,
       height: 100,
@@ -23,36 +22,32 @@ function add(d, i) {
     originY: "center",
   });
 
-  const attrs = {
-    selectable: !d.disabled,
-    scalable: false,
-    rotatable: false,
-  }
-
   // 有分组添加进分组
   const {groupName} = d
   if(groupName) {
     if(!groups[groupName]) groups[groupName] = []
     groups[groupName].push(rect, text)
   } else { // 无分组直接绘制
-    const group = new fabric.Group([rect, text], attrs)
-    canvas.add(group);
-    modified(group)
-    canvas.setActiveObject(group);
+    draw([rect, text])
   }
   
   // 绘制分组
   if(i === renders.length - 1) {
     Object.values(groups).forEach(g => {
-      const group = new fabric.Group(g, attrs)
-      canvas.add(group)
-      modified(group)
-      canvas.setActiveObject(group)
+      draw(g)
     })
   }
 }
 
-function modified(rect) {
+function draw(group) {
+  const attrs = {
+    selectable: !group.some(d => d.disabled),
+    scalable: false,
+    rotatable: false,
+  }
+  const rect = new fabric.Group(group, attrs)
+  canvas.add(rect)
+  canvas.setActiveObject(rect)
   // 禁用矩形的默认旋转行为
   // rect.lockRotation = true;
   // rect.lockMovementY = true;
