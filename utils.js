@@ -1,13 +1,14 @@
 function add(d, i) {
+  console.log('d.type',d.type)
   // 图形
-  const rect = new fabric.Rect({
+  const rect = new fabric[d.type]({
     ...{
       width: 200,
       height: 100,
       left: 100,
       top: 50,
       objectCaching: false,
-      fill: "white",
+      fill: d.disabled ? 'white' : "#f5f5f5",
       stroke: "#ccc",
       strokeWidth: 1,
     },
@@ -15,7 +16,7 @@ function add(d, i) {
   });
   // 文本
   const text = new fabric.Text(d.text, {
-    fontSize: 14,
+    fontSize: d.fontSize || 14,
     left: rect.left + rect.width / 2,
     top: rect.top + rect.height / 2,
     originX: "center",
