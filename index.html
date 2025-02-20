@@ -24,21 +24,20 @@
       const canvas = new fabric.Canvas("canvas");
       const groups = {}
       const renders = [
-        { text: '大门', width: 90, height: 10, left: 5, top: 550, fontSize: 12,disabled: true },
-        { text: '主', width: 10, height: 90, left: 0, top: 320, fontSize: 12,disabled: true },
-        { text: '次', width: 10, height: 90, left: 0, top: 140, fontSize: 12,disabled: true },
-        { text: '鞋柜', width: 25, height: 80, left: 95, top: 480, fontSize: 12 },
+        { text: '大门', width: 80, height: 10, left: 5, top: 550, fontSize: 12,disabled: true },
+        { text: '主', width: 10, height: 80, left: 0, top: 320, fontSize: 12,disabled: true },
+        { text: '次', width: 10, height: 80, left: 0, top: 160, fontSize: 12,disabled: true },
+        { text: '鞋柜', width: 20, height: 70, left: 85, top: 490, fontSize: 12 },
         { text: '电视柜', width: 200, height: 40, left: 100, top: 0 },
         { text: '阳台', width: 100, height: 360, left: 400, top: 0, groupName: 'yangtai', disabled: true },
         { text: '阳台门', width: 90, height: 10, left: 405, top: 350, groupName: 'yangtai', fontSize: 12, disabled: true },
-        { text: '贵妃位', width: 100, height: 180, left: 120, top: 380, groupName: 'shafa' },
-        { text: '沙发', width: 240, height: 100, left: 220, top: 460, groupName: 'shafa' },
+        { text: '贵妃位', width: 90, height: 180, left: 105, top: 380, groupName: 'shafa' },
+        { text: '沙发双位', width: 180, height: 90, left: 195, top: 470, groupName: 'shafa' },
+        { text: '沙发单位', width: 90, height: 90, left: 375, top: 470 },
         { text: '吊床', radius: 60, left: 280, top: 220, type: 'Circle' },
       ];
       
-      renders.forEach((d, i) => {
-        add(d, i)
-      })
+      add(renders)
     </script>
   </body>
 </html>
