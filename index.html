@@ -8,36 +8,69 @@
     <script src="./utils.js"></script>
     <style>
       .box{
+        position: relative;
         border: 1px solid #ccc;
+      }
+      .mubu {
+        position: absolute;
+        left: -21px;
+        top: 0;
+        width: 20px;
+        height: 100%;
+      }
+      .mubu div{
+        position: relative;
+        top: 112px;
+        left: 0;
+        line-height: 20px;
+        display: inline-block;
+        width: 20px;
+        height: 420px;
+        writing-mode: vertical-rl;
+        white-space: wrap;
+        text-align: center;
+        background-color: #ccc;
+        background: repeating-linear-gradient(
+          135deg,
+    #9bff9b 10px,
+    #fff6cc 20px
+        );
       }
     </style>
     <title>大厅布局</title>
   </head>
   <body>
-    <div class="w-[500px] h-[600px] mx-auto mt-[100px]">
+    <div class="w-[500px] h-[600px] mx-auto mt-[20px]">
       <h1 class="h-[40px] text-center">大厅布局</h1>
       <div class="box">
-        <canvas id="canvas" width="502" height="561"></canvas>
+        <canvas id="canvas" width="502" height="800"></canvas>
+        <div class="mubu"><div>观影区</div></div>
       </div>
     </div>
     <script>
       const canvas = new fabric.Canvas("canvas");
       const groups = {}
       const renders = [
-        { text: '大门', width: 80, height: 10, left: 5, top: 550, fontSize: 12,disabled: true },
-        { text: '主', width: 10, height: 80, left: 0, top: 320, fontSize: 12,disabled: true },
-        { text: '次', width: 10, height: 80, left: 0, top: 160, fontSize: 12,disabled: true },
-        { text: '鞋柜', width: 20, height: 70, left: 85, top: 490, fontSize: 12 },
-        { text: '电视柜', width: 200, height: 40, left: 100, top: 0 },
-        { text: '阳台', width: 100, height: 360, left: 400, top: 0, groupName: 'yangtai', disabled: true },
-        { text: '阳台门', width: 90, height: 10, left: 405, top: 350, groupName: 'yangtai', fontSize: 12, disabled: true },
-        { text: '贵妃位', width: 90, height: 180, left: 105, top: 380, groupName: 'shafa' },
-        { text: '沙发双位', width: 180, height: 90, left: 195, top: 470, groupName: 'shafa' },
-        { text: '沙发单位', width: 90, height: 90, left: 375, top: 470 },
-        { text: '吊床', radius: 60, left: 280, top: 220, type: 'Circle' },
+        { text: '大门', width: 160, height: 10, left: 310, top: 0, fontSize: 12,disabled: true },
+        { text: '柱子', width: 16, height: 30, left: 482, top: 0, fontSize: 12,disabled: true },
+        { text: '书架', width: 180, height: 40, left: 102, top: 0 },
+        { text: '鞋柜', width: 40, height: 156, left: 458, top: 32, fontSize: 12 },
+        // { text: '饭桌', width: 100, height: 200, left: 0, top: 50, fontSize: 12 },
+        { text: '冰箱', width: 100, height: 108, left: 0, top: 0, fontSize: 12 },
+        { text: '卧', width: 10, height: 160, left: 0, top: 360, fontSize: 12,disabled: true },
+        { text: '厨', width: 10, height: 130, left: 0, top: 560, fontSize: 12,disabled: true },
+        { text: '贵妃位', width: 340, height: 140, left: 158, top: 470, groupName: 'shafa' },
+        { text: '沙发双位', width: 140, height: 280, left: 358, top: 190, groupName: 'shafa' },
+        { text: '阳台', width: 499, height: 100, left: -1, top: 700, groupName: 'yangtai', disabled: true },
+        { text: '阳台门', width: 130, height: 10, left: 10, top: 700, groupName: 'yangtai', fontSize: 12, disabled: true },
+        { text: '电脑桌', width: 100, height: 250, left: 146, top: 449, fontSize: 12 },
+        { text: '书桌', width: 230, height: 76, left: 268, top: 622, fontSize: 12 },
+        { text: '投影仪', width: 36, height: 36, left: 460, top: 624, fontSize: 12 },
+        // { text: '吊床', radius: 60, left: 280, top: 220, type: 'Circle' },
       ];
       
       add(renders)
     </script>
   </body>
 </html>
+
